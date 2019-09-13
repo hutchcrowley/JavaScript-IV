@@ -120,22 +120,7 @@ class Humanoid extends CharacterStats {
 
 // Objects 
 
-const mage = new Humanoid({
-
-    createdAt: new Date(),
-    dimensions: {
-        length: 2,
-        width: 1,
-        height: 1,
-    },
-    healthPoints: 5,
-    name: 'Bruce',
-    team: 'Mage Guild',
-    weapons: [
-        'Staff of Shamalama',
-    ],
-    language: 'Common Tongue',
-});
+2   
 
 const swordsman = new Humanoid({
     createdAt: new Date(),
@@ -147,9 +132,7 @@ const swordsman = new Humanoid({
     healthPoints: 15,
     name: 'Sir Mustachio',
     team: 'The Round Table',
-    weapons: [
-        'Giant Sword',
-        'Shield',
+  2      'Shield',
     ],
     language: 'Common Tongue',
 });
