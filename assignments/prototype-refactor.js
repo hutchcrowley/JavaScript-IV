@@ -8,7 +8,12 @@ Prototype Refactor
 
 */
 
+
+
+
 //  Constructor function that creates an object called GameOject
+
+// Old code
 
 // function GameObject(attrs) {
 //     this.createdAt = new Date();
@@ -16,13 +21,16 @@ Prototype Refactor
 //     this.dimensions = attrs.dimensions;
 // }
 
+// Refactored code
+
 class GameObject {
-    constructor(gameObject) {
-        this.createdAt = new Date();
-        this.name = name;
-        this.dimensions = attrs.dimensions;
+    constructor(objAttrs) {
+        this.createdAt = Date();
+        this.dimensions = objAttrs.dimensions;
+
     }
-    // Adds a method, destroy() to the object GameObject
+
+    // Adds a method, destroy() to the object GameObjectddd
 
     // Old code
 
@@ -33,11 +41,10 @@ class GameObject {
     // Refactored code
 
     destroy() {
-        console.log(this.name + ' was removed from the game.');
+        return this.name + ' was removed from the game.';
     }
+
 }
-
-
 //  Creates an object called CharacterStats
 
 // Old code
@@ -50,12 +57,15 @@ class GameObject {
 // Refactored code
 
 class CharacterStats extends GameObject {
-    constructor(CharacterStats) {
+    constructor(characterAttrs) {
         super(characterAttrs);
         this.healthPoints = characterAttrs.healthPoints;
+        this.name = characterAttrs.name;
+        this.team = characterAttrs.team;
+        this.weapons = characterAttrs.weapons;
+
     }
-
-
+    
     // Creates a proto method that retruns the string "objectName.name took damage."
 
     // Old code
@@ -64,10 +74,12 @@ class CharacterStats extends GameObject {
     //     return `${this.name} took damage.`;
     // };
 
-    // New code
+    // Refactored code
+
     takeDamage() {
-        console.log(this.name + ' took damage');
+        return this.name + ' took damage';
     }
+
 }
 
 //  Creates an object called Humanoid.
@@ -81,13 +93,13 @@ class CharacterStats extends GameObject {
 //     this.language = humanAttrs.language;
 // }
 
-// New code
+
+// Refactored code
 
 class Humanoid extends CharacterStats {
-    constructor(Humanoid) {
-        this.team = team;
-        this.weapons = weapons;
-        this.language = language;
+    constructor(humanAttrs) {
+        super(humanAttrs);
+        this.language = humanAttrs.language;
     }
 
 
@@ -99,15 +111,17 @@ class Humanoid extends CharacterStats {
     //     return `${this.name} offers a greeting in ${this.language}.`;
     // };
 
-    // New code
+    // Refactored code
 
     greet() {
-        console.log(this.name + ' offers a greeting in ' + this.language);
+        return this.name + ' offers a greeting in ' + this.language;
     }
 }
 
+// Objects 
 
 const mage = new Humanoid({
+
     createdAt: new Date(),
     dimensions: {
         length: 2,
